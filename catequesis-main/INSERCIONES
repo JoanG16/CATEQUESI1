@@ -1,0 +1,141 @@
+ 
+ 
+
+INSERT INTO CREYENTE VALUES ('1', 'Gallardo', 'Vielka', '1310194700', 'Barrio San Pedro','2010-04-18','mantuano@hotmail.com','0983594862','0953514800'),
+   ('2', 'Mantuano', 'Fabricio', '1355104880', 'Barrio San Agustin','2015-10-10','fabricio@hotmail.com','0954591596','0980514680'),
+   ('3', 'Alvia', 'Carlos', '1292482060', 'La Pradera','2012-01-19','carlos@hotmail.com','0945691321','0946784356'),
+   ('4', 'Vinces', 'Luis', '125618020', 'Barrio Divino niño','2013-11-29','luis@hotmail.com','0962391731','0919484537'),
+   ('5', 'Zamora', 'Mía', '139718430', 'Barrio La victoria','2014-09-14','mia@hotmail.com','0963391512','0923284874');
+   
+   
+   
+   INSERT INTO CREYENTE VALUES ('6', 'Alcivar', 'Juan', '1310764700', 'Barrio Pueblo viejo','2010-04-18','juan@hotmail.com','096654862','0953512340'),
+('7', 'Cedeño', 'Filemón', '1355104456', 'Barrio San Agustin','2012-11-10','filemon@hotmail.com','0958891596','0980524440'),
+('8', 'Alarcon', 'Crishtian', '1313820604', 'La Pradera','2011-05-12','alarcon@hotmail.com','0945655551','0946785555'),
+('9', 'Vera', 'Luisa', '1256184020', 'Barrio Divino niño','2015-05-29','luisa@hotmail.com','0962391731','0919484537'),
+('10', 'Zamora', 'Mayerlly', '1397188530', 'Barrio La victoria','2013-06-18','zamora@hotmail.com','0963456782','0923279874'),
+
+('11', 'Alava', 'Liza', '131074532', 'Barrio Pueblo viejo','2012-03-18','liza@hotmail.com','096668862','095355540'),
+('12', 'Cobeña', 'Fanny', '1358964456', 'Barrio San Agustin','2014-09-04','fanny@hotmail.com','0911391596','0980889640'),
+('13', 'Cornejo', 'Carla', '1313821564', 'La Pradera','2016-01-11','carla@hotmail.com','0945637951','0946196755'),
+('14', 'Viera', 'Leo', '1256187845', 'Barrio Divino niño','2013-07-15','leo@hotmail.com','0962119231','0919933737');
+
+INSERT INTO CREYENTE VALUES ('15', 'Alarcon', 'Pedro', '1355264700', 'Barrio Pueblo viejo','2015-08-28','pedro@hotmail.com','096657962','0953515440');
+   
+
+
+INSERT INTO COORDINADOR VALUES ('1', 'William', 'Farfán', '1320566880', 'Barrio San Pedro','2000-12-25','2020-11-01','william@hotmail.com','0983337556','0912518945'),
+   ('2', 'Juan', 'Viera', '1367655780', 'Barrio Palmar','1984-11-10','2010-01-18','juan@hotmail.com','0954591596','0980514680'),
+  ('3', 'Michael', 'Vera', '1367655780', 'Ciudadela La Aurora','1990-11-10','2005-10-10','michael@hotmail.com','0936691889','0955661125') ;
+  
+  
+INSERT INTO CATEQUISTA VALUES ('1', 'Pedro', 'López', '1556566880', 'Proaño','1999-10-25','2010-11-01','pedro@hotmail.com','0985337756','0912519945'),
+   ('2', 'Pepe', 'Lucas', '1355555790', 'Barrio Victoria','1985-01-10','2010-01-18','pepe@hotmail.com','0958451596','0980514680'),
+  ('3', 'Marcos', 'Barrientos', '1384665220', 'Ciudadela Lomas altas','1992-11-10','2015-10-10','marcos@hotmail.com','0938512889','0944321125'),
+  ('4', 'Pablo', 'Alcivar', '1384655870', 'Ciudadela Lago agrio','1998-01-09','2016-10-10','pablo@hotmail.com','0956412889','0944321050');
+  
+  INSERT INTO SACERDOTE VALUES ('1', 'Patricio', 'Cedeño', '1987566845', 'Barrio Pueblo chico','1990-12-25','2010-08-07','patricio@hotmail.com','0956137756','0912512346'),
+   ('2', 'Leo', 'Sanchez', '1348655790', 'Barrio La lorena','1982-05-17','2006-07-26','leo@hotmail.com','0955481596','0980514290'),
+  ('3', 'Luis', 'Moran', '1381973220', 'Ciudadela Manta nueva','1998-10-25','2019-05-10','luis@hotmail.com','0938862889','0922321125'),
+  ('4', 'Carlos', 'Rivas', '1334228870', 'Barrio 7 puñalada','1988-11-04','2016-05-18','carlos@hotmail.com','0956316889','0947640025');
+  
+  INSERT INTO SECRETARIA VALUES ('1', 'Miriam', 'Mero', '1326766548', 'Barrio Plaza bella','1989-10-15','2010-09-01','miriam@hotmail.com','0966337886','0969818234'),
+   ('2', 'Danna', 'Villacis', '1356215778', 'Barrio La lorena','1994-11-10','2015-11-20','danna@hotmail.com','0954595646','0980856680') ;
+   
+   
+   INSERT INTO ACCION VALUES('1','Asiste a Santa Misa Dominical'),
+   ('2','Confesión frecuente'),
+   ('3','Asite a formación de catequista'),
+   ('4','Intimidad con Dios'),
+   ('5','Escudriña la sagrada escritura');
+   
+   
+   INSERt INTO TEMA VALUES ('1','El amor del Padre','Mención de versiculos sobre el amor'),
+   ('2','El pecado','Explicar origen del pecado y mención de Adán y Eva'),
+   ('3','Jesús es el Salvador','Explicar venida y como murió para salvarnos'),
+   ('4','Fe y conversión','Detalle de la palabra FE y pasos para conversión');
+  
+  INSERT INTO REUNION VALUES ('1','14:30:00','2020-10-10','Explicación de temas y dinámica con niños'),
+  ('2','17:30:00','2020-10-15','Explicación de temas y se entrego etiquetas'),
+  ('3','14:30:00','2020-10-20','Explicación de temas y evaluó conocimientos'),
+  ('4','17:30:00','2020-10-25','Explicación de temas y cantaron los niños'),
+  ('5','14:30:00','2020-10-30','Explicación de temas y dinámica con niños');
+  
+  
+  INSERT INTO TIPO_CATEQUESI VALUES ('1','comunión','1'),
+  ('2','confirmación','2'),
+  ('3','familiar y prematrimonial','3');
+  
+  INSERT INTO NIVEL VALUES ('1','1','Iniciación'),
+  ('2','1','Primer nivel'),
+  ('3','1','Segunda comunión'),
+  ('4','2','Año bíblico'),
+  ('5','2','Primera confirma'),
+  ('6','2','Segunda confirma');
+  
+ 
+ 
+ INSERT INTO DETALLE_REUNION VALUES
+ ('1','1','2','1','1'),
+ ('2','2','2','1','1'),
+ ('3','3','2','1','1'),
+ ('4','5','2','1','1'),
+ ('5','6','2','1','1'),
+ ('6','7','2','1','1'),
+ ('7','1','3','2','2'),
+ ('8','2','3','2','2'),
+ ('9','3','3','2','2'),
+ ('10','5','3','2','2'),
+ ('11','6','3','2','2'),
+ ('12','7','3','2','2'),
+ ('13','4','1','3','4'),
+ ('14','1','2','4','4'),
+ ('15','2','2','4','4'),
+ ('16','3','2','4','4'),
+ ('17','5','2','4','4'),
+ ('18','6','2','4','4'),
+ ('19','7','2','4','4');
+ 
+  
+  INSERT INTO GRUPO VALUES('1','Aguilas','1','1','1','1'),
+  ('2','Leones','2','2','2','2'),
+  ('3','Ovejas','3','3','3','3'),
+  ('4','Torre','4','4','4','4'),
+  ('5','Cielo','1','2','5','4');
+  
+  INSERT INTO INSCRIPCION VALUES ('001','2020-10-05','1','2','1'),
+  ('002','2020-10-04','2','2','1'),
+  ('003','2020-10-03','3','2','2'),
+  ('004','2020-10-03','4','1','2'),
+  ('005','2020-10-03','3','2','2'),
+  ('006','2020-10-05','6','2','1'), 
+  ('007','2020-10-04','6','2','1'),
+  ('008','2020-10-03','7','2','2'),
+  ('009','2020-10-03','8','2','2'),
+  ('010','2020-10-03','9','2','2'),
+  ('011','2020-10-05','10','2','1'),
+  ('012','2020-10-04','11','2','1'),
+  ('013','2020-10-03','12','2','2'),
+  ('017','2020-10-05','14','2','1');
+  
+  
+ 
+  INSERT INTO EVALUACION VALUES ('001','001','aprobó su evaluación','1','2021-01-15'),
+  ('002','002','desaprobó su evaluación','2','2021-01-15'),
+  ('003','015','desaprobó su evaluación','1','2021-01-15'),
+  ('005','004','desaprobó por no terminar el nivel ','3','2021-01-15'),
+  ('006','016','desaprobó por no terminar el nivel ','1','2022-01-15');
+  
+    INSERT INTO EVALUACION VALUES ('007','005','aprobó su evaluación','1','2021-10-15'),
+  ('008','006','aprobó su evaluación','1','2021-10-15'),
+  ('009','007','aprobó su evaluación','1','2021-10-15'),
+  ('0010','008','aprobó su evaluación ','1','2022-01-15'),
+  ('0011','009','aprobó su evaluación ','1','2022-01-15')
+  ('0012','010','aprobó su evaluación ','1','2021-10-15'),
+  ('0013','011','aprobó su evaluación','1','2021-10-15'),
+  ('0014','012','aprobó su evaluación ','1','2021-10-15'),
+  ('0015','013','aprobó su evaluación ','1','2021-10-15');
+  
+   INSERT INTO EVALUACION VALUES ('0016','014','aprobó su evaluación','1','2022-01-15');
+  
+  

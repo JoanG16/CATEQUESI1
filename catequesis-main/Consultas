@@ -1,0 +1,64 @@
+ --CONSULTA#1
+ SELECT 
+  
+  EXTRACT(YEAR FROM  u.fecha_inscripcion) CON_EXTRACT,
+	  
+n.nombre_nivel as nivel,
+count(id_inscripcion) as total
+FROM INSCRIPCION u
+	  INNER JOIN GRUPO g ON g.id_grupo = u.id_grupo
+  inner join NIVEL n on n.id_nivel = g.id_nivel
+  where  EXTRACT(YEAR FROM  u.fecha_inscripcion)='2020'
+  GROUP BY  EXTRACT(YEAR FROM  u.fecha_inscripcion), n.nombre_nivel
+    
+  
+  
+  
+  --CONSULTA#2
+  
+    SELECT
+c.nombre_creyente,
+c.apellidos_creyente,
+c.fecha_nacimiento_creyente,
+c.telefono_1,
+e.descripcion_evaluacion as Detalle_final
+
+From EVALUACION e
+inner join INSCRIPCION i on i.id_inscripcion = e.id_inscripcion
+inner join CREYENTE c on c.id_creyente = i.id_creyente
+where e.resultado=3
+
+
+--CONSULTA#3
+
+SELECT 
+ EXTRACT(YEAR FROM  r.fecha_reunion) CON_EXTRACT,
+ c.nombre_catequista as CATEQUISTA,
+ count(*) as total
+ FROM GRUPO g
+INNER JOIN CATEQUISTA c ON c.id_catequista = g.id_catequista
+inner join DETALLE_REUNION d on d.id_detalle_creyente_reunion = g.id_detalle_reunion
+inner join REUNION r on r.id_reunion = d.id_reunion
+  GROUP BY  EXTRACT(YEAR FROM  r.fecha_reunion), c.nombre_catequista
+   
+ 
+ 
+ 
+ 
+ 
+ --CONSULTA#4
+ 
+ 
+  SELECT
+y.nombre_creyente as creyente,
+n.nombre_nivel as nivel,
+c.nombre_catequista as sacerdote
+
+From EVALUACION e
+inner join INSCRIPCION i on i.id_inscripcion = e.id_inscripcion
+inner join GRUPO g on g.id_grupo = i.id_grupo
+inner join CATEQUISTA c on c.id_catequista = g.id_catequista
+inner join NIVEL n on n.id_nivel =g.id_nivel
+inner join CREYENTE y on y.id_creyente = i.id_creyente
+
+where e.resultado=2

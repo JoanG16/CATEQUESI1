@@ -1,0 +1,79 @@
+   --trigger
+Create or replace function creyentes_maximo() returns trigger
+as
+$creyentes_maximo$
+declare
+lleno int;
+creyentes int;
+BEGIN
+select count(*) into lleno from INSCRIPCION where id_grupo = new.id_grupo;
+select  cantidad_creyente into creyentes from GRUPO;
+if (lleno >= creyentes) then
+RAISE EXCEPTION 'Cantidad máxima de creyentes en este grupo';
+end if;
+return new;
+end;
+$creyentes_maximo$
+LANGUAGE plpgsql;
+ 
+ 
+ 
+ --cursor
+do $$
+declare 
+       registro record;
+       Cur_registro cursor for SELECT 
+       r.id_reunion as reunion,count (DISTINCT c.id_creyente) creyentes, count(DISTINCT a.id_tema) as tema, count(DISTINCT t.id_actividad) as actividad 
+From  DETALLE_REUNION d
+INNER JOIN  REUNION r on r.id_reunion= d.id_reunion
+inner join CREYENTE c on c.id_creyente = d.id_creyente
+inner join TEMA a on a.id_tema=d.id_tema
+inner join ACTIVIDAD t on t.id_actividad = d.id_actividad
+ GROUP BY reunion;  
+  begin
+  open Cur_registro;
+  fetch Cur_registro into registro;
+  while (FOUND) LOOP
+  Raise notice '|Reunion: (%), Creyentes que asistieron: (%), Temas: (%), Actividad: % |', registro.reunion,registro.creyentes, registro.tema, registro.actividad;
+  fetch Cur_registro into registro;
+  end loop;
+  end $$
+  language 'plpgsql';
+  
+
+  --STORED PROCEDURE
+   
+  CREATE function buscarcreyente(Varchar) returns bigint
+as
+$$
+
+     SELECT 
+      
+          sum(e.resultado) as aprobadas
+     from EVALUACION e
+     inner join INSCRIPCION i on i.id_inscripcion=e.id_inscripcion
+     inner join CREYENTE c on c.id_creyente=i.id_creyente
+     where c.nombre_creyente=$1
+     GROUP BY c.nombre_creyente
+     
+$$
+language SQL
+
+
+
+--REPORTE
+--diagrama
+  
+SELECT 
+  
+  EXTRACT(YEAR FROM  e.fecha_evaluacion) CON_EXTRACT,
+	  
+count(e.resultado) as aprobados
+
+FROM EVALUACION e
+	  where e.resultado='1' 
+  GROUP BY  EXTRACT(YEAR FROM  e.fecha_evaluacion)
+   
+    
+
+

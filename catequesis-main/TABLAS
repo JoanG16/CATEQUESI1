@@ -1,0 +1,201 @@
+
+create table SECRETARIA (
+id_secretaria integer  PRIMARY kEY,
+nombre_secretaria  varchar(50),
+apellidos_secretaria VARCHAR(50),
+cedula_secretaria VARCHAR(50),
+direccion_secretaria varchar(50),
+fecha_nacimiento_secretaria DATE,
+fecha_ingreso_labor_secretaria DATE,
+correo VARCHAR (50),
+telefono_1 VARCHAR(10),
+telefono_2 VARCHAR(10)
+);
+
+create table SACERDOTE (
+id_sacerdote integer  PRIMARY kEY,
+nombre_sacerdote  varchar(50),
+apellidos_sacerdote VARCHAR(50),
+cedula_sacerdote VARCHAR(50),
+direccion_sacerdote varchar(50),
+fecha_nacimiento_sacerdote DATE,
+fecha_ingreso_labor_sacerdote DATE,
+correo VARCHAR (50),
+telefono_1 VARCHAR(10),
+telefono_2 VARCHAR(10)
+);
+
+create table DIACONO (
+id_diacono integer  PRIMARY kEY,
+nombre_diacono  varchar(50),
+apellidos_diacono VARCHAR(50),
+cedula_diacono VARCHAR(50),
+direccion_diacono varchar(50),
+fecha_nacimiento_diacono DATE,
+fecha_ingreso_labor_diacono DATE,
+correo VARCHAR (50),
+telefono_1 VARCHAR(10),
+telefono_2 VARCHAR(10)
+);
+
+create table COORDINADOR (
+id_coordinador integer  PRIMARY kEY,
+nombre_coordinador  varchar(50),
+apellidos_coordinador VARCHAR(50),
+cedula_coordinador VARCHAR(50),
+direccion_coordinador varchar(50),
+fecha_nacimiento_coordinador DATE,
+fecha_ingreso_labor_coordinador DATE,
+correo VARCHAR (50),
+telefono_1 VARCHAR(10),
+telefono_2 VARCHAR(10)
+);
+
+create table CREYENTE(
+id_creyente integer  PRIMARY kEY,
+nombre_creyente varchar(50),
+apellidos_creyente VARCHAR(50),
+cedula_creyente VARCHAR(50),
+direccion_creyente varchar(50),
+fecha_nacimiento_creyente DATE,
+correo VARCHAR (50),
+telefono_1 VARCHAR(10),
+telefono_2 VARCHAR(10)
+);
+
+create table CATEQUISTA (
+id_catequista integer  PRIMARY kEY,
+nombre_catequista varchar(50),
+apellidos_catequista VARCHAR(50),
+cedula_catequista VARCHAR(50),
+direccion_catequista varchar(50),
+fecha_nacimiento_catequista DATE,
+fecha_ingreso_labor_catequista DATE,
+correo VARCHAR (50),
+telefono_1 VARCHAR(10),
+telefono_2 VARCHAR(10)
+);
+
+
+create table ACCION (
+id_accion integer Primary Key,
+nombre_accion varchar(50)
+);
+
+create table ACCION_CREYENTE (
+id_creyente integer,
+id_accion integer,
+CONSTRAINT ACCION_id_FK FOREIGN KEY (id_accion) REFERENCES ACCION (id_accion)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+   CONSTRAINT CREYENTE_id_FK FOREIGN KEY (id_creyente) REFERENCES CREYENTE(id_creyente)
+   ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+create table REUNION (
+id_reunion integer Primary Key,
+hora_reunion TIME,
+fecha_reunion DATE,
+actividades VARCHAR (50)
+);
+
+create table TEMA (
+id_tema integer Primary Key,
+nombre_tema VARCHAR (50),
+descripcion_tema VARCHAR (50)
+
+);
+
+
+
+create table TIPO_CATEQUESI (
+id_catequesi integer Primary Key,
+nombre_catequesi varchar(50),
+id_coordinador integer
+
+);
+
+create table NIVEL (
+id_nivel integer Primary Key,
+id_catequesi integer,
+nombre_nivel varchar(50),
+CONSTRAINT TIPO_CATEQUESI_id_FK FOREIGN KEY (id_catequesi) REFERENCES TIPO_CATEQUESI (id_catequesi)
+   ON DELETE RESTRICT ON UPDATE CASCADE
+
+);
+
+create table ACTIVIDAD (
+id_actividad integer primary key,
+descripcion varchar(100)  )
+     INSERT INTO ACTIVIDAD VALUES('1','Explicación de temas y dinámica con niños'),
+     ('2','Explicación de temas y se entrego etiquetas'),
+     ('3','Explicación de temas y evaluó conocimientos'),
+     ('4','Explicación de temas y cantaron los niños');
+
+
+create table DETALLE_REUNION (
+id_detalle_creyente_reunion integer primary key,
+
+id_creyente integer,
+ id_reunion integer,  
+  id_tema int ,
+   id_actividad int , 
+ CONSTRAINT CREYENTE_id_FK FOREIGN KEY (id_creyente) REFERENCES CREYENTE (id_creyente)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+   
+ CONSTRAINT REUNION_id_FK FOREIGN KEY (id_reunion) REFERENCES REUNION (id_reunion)
+   ON DELETE RESTRICT ON UPDATE CASCADE    
+);
+
+ALTER TABLE DETALLE_REUNION
+
+ADD FOREIGN KEY (id_actividad) REFERENCES ACTIVIDAD(id_actividad);
+
+ALTER TABLE DETALLE_REUNION
+
+ADD FOREIGN KEY (id_tema) REFERENCES TEMA(id_tema);
+
+
+create table GRUPO (
+id_grupo integer Primary Key,
+nombre_grupo varchar(50),
+id_catequista integer,
+id_sacerdote integer,
+id_nivel integer,
+id_detalle_reunion INTEGER,
+
+CONSTRAINT NIVEL_id_FK FOREIGN KEY (id_nivel) REFERENCES NIVEL (id_nivel)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+   CONSTRAINT CATEQUISTA_id_FK FOREIGN KEY (id_catequista) REFERENCES CATEQUISTA (id_catequista)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT SACERDOTE_id_FK FOREIGN KEY (id_sacerdote) REFERENCES SACERDOTE (id_sacerdote)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT DETALLE_REUNION_id_FK FOREIGN KEY (id_detalle_reunion) REFERENCES DETALLE_REUNION (id_detalle_creyente_reunion)
+   ON DELETE RESTRICT ON UPDATE CASCADE
+
+);
+
+create table INSCRIPCION (
+id_inscripcion integer Primary Key,
+fecha_inscripcion DATE,
+id_creyente integer,
+id_grupo integer,
+id_secretaria INTEGER,
+ 
+   CONSTRAINT CREYENTE_id_FK FOREIGN KEY (id_creyente) REFERENCES CREYENTE (id_creyente)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+   CONSTRAINT GRUPO_id_FK FOREIGN KEY (id_grupo) REFERENCES GRUPO (id_grupo)
+   ON DELETE RESTRICT ON UPDATE CASCADE,
+   CONSTRAINT SECRETARIA_id_FK FOREIGN KEY (id_secretaria) REFERENCES SECRETARIA (id_secretaria)
+   ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+create table EVALUACION (
+id_evaluacion integer Primary Key,
+id_inscripcion integer,
+descripcion_evaluacion varchar(50),
+resultado integer,
+fecha_evaluacion date,
+CONSTRAINT INSCRIPCION_id_FK FOREIGN KEY (id_inscripcion) REFERENCES INSCRIPCION (id_inscripcion)
+   ON DELETE RESTRICT ON UPDATE CASCADE
+
+);
